@@ -33,25 +33,13 @@
 							</li>
 							<li>
 								<!-- <span><a href="https://processpure.co/resources/what-is-a-champion" target="_blank"><p>What is a champion?</p></a></span> -->
-								<span><label for="q2">Who is your champion at [name of company]?</label></span>
+								<span><label for="q2">Who is your champion at <span class="company-name"></span>?</label></span>
 								<input id="q2" name="q2" type="text"/>
 							</li>
 							<li>
 								<span><label for="q3">What is the identified pain that warrents your solution?</label></span>
 								<input id="q3" name="q3" type="text"/>
 							</li>
-<!-- 							<li>
-								<span><label for="q4">How do you like your veggies?</label></span>
-								<input id="q4" name="q4" type="text"/>
-							</li>
-							<li>
-								<span><label for="q5">What book inspires you?</label></span>
-								<input id="q5" name="q5" type="text"/>
-							</li>
-							<li>
-								<span><label for="q6">What's your profession?</label></span>
-								<input id="q6" name="q6" type="text"/>
-							</li> -->
 						</ol><!-- /questions -->
 						<button class="submit" type="submit">Send answers</button>
 						<div class="controls">
@@ -66,16 +54,18 @@
 					</div><!-- /simform-inner -->
 					<span class="final-message"></span>
 				</form><!-- /simform -->
+				<h1 class="company-name"></h1>
+				<h2 id="champion-name"></h2>
 			</section>
 			<section class="related">
-				<p>Company name</p>
+				<h2>You may find these articles helpful</h2>
 				<a href="http://tympanus.net/Tutorials/NaturalLanguageForm/">
-					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/05/NaturalLanguageForm2-300x162.png" />
-					<h3>Natural Language Form</h3>
+					<img src="http://process-pure-demo.herokuapp.com/app/img/c1.png" width="300px" />
+					<h3 style="color: ivory;">What are the winning characteristics of a champion?</h3>
 				</a>
 				<a href="http://tympanus.net/Development/AnimatedCheckboxes/">
-					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/10/AnimatedCheckboxes-300x162.png" />
-					<h3>Animated Checkboxes with SVG</h3>
+					<img src="http://process-pure-demo.herokuapp.com/app/img/bg2.png" width="300px" />
+					<h3 style="color: ivory;">8 tips to identify pain points when selling to large enterprise companies.</h3>
 				</a>
 			</section>
 		</div><!-- /container -->
@@ -85,11 +75,23 @@
 			var theForm = document.getElementById( 'theForm' );
 
 			function getCompany() {
+				function showCompany(companyName) {
+					var messageEl = document.getElementsByClassName('company-name' );
+					for (var i = 0; i < messageEl.length; i++) {
+						messageEl[i].innerHTML = companyName;
+						classie.addClass( messageEl[i], 'show' );
+					}
+				}
+				function showChampion(champName) {
+					var messageEl = document.getElementById('champion-name');
+					messageEl.innerHTML = champName;
+					classie.addClass( messageEl, 'show' );
+				}
 				var input1 = document.getElementById('q1').value;
-				if (input1) { console.log(input1); }
+				if (input1) { showCompany(input1); }
 
 				var input2 = document.getElementById('q2').value;
-				if (input2) { console.log(input2); }
+				if (input2) { showChampion(input2); }
 			}
 
 			var nextButton = document.getElementById('next');
