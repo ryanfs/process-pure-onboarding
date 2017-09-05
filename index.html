@@ -59,11 +59,11 @@
 			</section>
 			<section class="related">
 				<h2>You may find these articles helpful</h2>
-				<a href="http://tympanus.net/Tutorials/NaturalLanguageForm/">
+				<a target="_blank" href="http://tympanus.net/Tutorials/NaturalLanguageForm/">
 					<img src="http://process-pure-demo.herokuapp.com/app/img/c1.png" width="300px" />
 					<h3 style="color: ivory;">What are the winning characteristics of a champion?</h3>
 				</a>
-				<a href="http://tympanus.net/Development/AnimatedCheckboxes/">
+				<a target="_blank" href="http://tympanus.net/Development/AnimatedCheckboxes/">
 					<img src="http://process-pure-demo.herokuapp.com/app/img/bg2.png" width="300px" />
 					<h3 style="color: ivory;">8 tips to identify pain points when selling to large enterprise companies.</h3>
 				</a>
@@ -72,8 +72,6 @@
 		<script src="js/classie.js"></script>
 		<script src="js/stepsForm.js"></script>
 		<script>
-			var theForm = document.getElementById( 'theForm' );
-
 			function getCompany() {
 				function showCompany(companyName) {
 					var messageEl = document.getElementsByClassName('company-name' );
@@ -101,6 +99,7 @@
 			    if (key === 13) { getCompany(); }
 			});
 
+			var theForm = document.getElementById( 'theForm' );
 			new stepsForm( theForm, {
 				onSubmit : function( form ) {
 
